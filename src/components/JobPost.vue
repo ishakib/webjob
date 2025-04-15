@@ -19,9 +19,9 @@
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue'
-import EasyDataTable from 'vue3-easy-data-table'
-import 'vue3-easy-data-table/dist/style.css'
+import {ref, onMounted} from 'vue';
+import EasyDataTable from 'vue3-easy-data-table';
+import 'vue3-easy-data-table/dist/style.css';
 
 const loading = ref(true)
 const error = ref(null)
@@ -37,7 +37,7 @@ const headers = [
 
 const fetchJobPosts = async () => {
   try {
-    const response = await fetch('/api/job-posts')
+    const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/job-posts`)
     if (!response.ok) throw new Error('Network response was not ok')
     const data = await response.json()
     jobPosts.value = data.data.jobs
